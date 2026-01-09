@@ -16,7 +16,6 @@ export default function LoginPage() {
     const [otp, setOtp] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    // In a real app, you shouldn't expose the OTP, but for this demo/mock backend it returns it
     const [debugOtp, setDebugOtp] = useState("");
 
     const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -26,7 +25,6 @@ export default function LoginPage() {
 
         try {
             const data = await api.login(email);
-            // Backend returns { otp: "..." }
             setDebugOtp(data.otp);
             setStep("otp");
         } catch (err: any) {
@@ -43,7 +41,6 @@ export default function LoginPage() {
 
         try {
             const data = await api.verify(email, otp);
-            // Save token via auth context
             login(data.token);
             router.push("/dashboard");
         } catch (err: any) {

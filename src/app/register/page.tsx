@@ -32,7 +32,6 @@ export default function RegisterCompanyPage() {
         try {
             const data = await api.registerCompany(subdomain, token);
             setSuccess({ role: data.role, companyId: data.companyId });
-            // Update user context with new company info
             updateUser({ companyId: data.companyId, role: data.role as "admin" | "manager" });
         } catch (err: any) {
             setError(err.message);

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { useAuth } from "@/contexts/auth-context";
 import { api } from "@/lib/api";
 import { Card } from "@/components/Card";
@@ -96,7 +95,6 @@ function ProductCard({ product }: { product: Product }) {
     return (
         <div className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
             <div className="flex">
-                {/* Image */}
                 <div className="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 bg-gray-50 relative">
                     {imageUrl ? (
                         <img
@@ -111,9 +109,7 @@ function ProductCard({ product }: { product: Product }) {
                     )}
                 </div>
 
-                {/* Content */}
                 <div className="flex-1 p-3 sm:p-4 min-w-0">
-                    {/* Name & SKU */}
                     <div className="mb-2">
                         <h3 className="font-medium text-gray-900 text-sm sm:text-base truncate">
                             {product.productName || product.name}
@@ -131,7 +127,6 @@ function ProductCard({ product }: { product: Product }) {
                         </div>
                     </div>
 
-                    {/* Properties */}
                     <div className="flex flex-wrap gap-1.5 mb-2">
                         {size && (
                             <Badge variant="default" className="text-xs">
@@ -151,7 +146,6 @@ function ProductCard({ product }: { product: Product }) {
                         )}
                     </div>
 
-                    {/* Price & Stock */}
                     <div className="flex items-center justify-between mt-auto">
                         <div>
                             {price?.uzs && (
@@ -244,7 +238,6 @@ export default function ProductsPage() {
     return (
         <main className="min-h-screen pt-24 pb-12 px-4 bg-gray-50">
             <div className="container mx-auto max-w-4xl">
-                {/* Header */}
                 <div className="mb-6">
                     <Link
                         href="/dashboard"
@@ -276,7 +269,6 @@ export default function ProductsPage() {
                     </div>
                 </div>
 
-                {/* Error State */}
                 {error && (
                     <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700">
                         <div className="flex items-center gap-2">
@@ -286,7 +278,6 @@ export default function ProductsPage() {
                     </div>
                 )}
 
-                {/* Loading State */}
                 {loading ? (
                     <Card className="py-12">
                         <div className="flex flex-col items-center justify-center">
@@ -301,14 +292,12 @@ export default function ProductsPage() {
                     </Card>
                 ) : (
                     <>
-                        {/* Products Grid */}
                         <div className="space-y-3">
                             {products.map((product) => (
                                 <ProductCard key={product.id} product={product} />
                             ))}
                         </div>
 
-                        {/* Pagination */}
                         <Card className="mt-6 p-0">
                             <Pagination
                                 currentPage={page}

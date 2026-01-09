@@ -45,7 +45,6 @@ class ApiClient {
     return data;
   }
 
-  // Auth endpoints
   async login(email: string) {
     return this.request<{ otp: string }>('/auth/login', {
       method: 'POST',
@@ -60,7 +59,6 @@ class ApiClient {
     });
   }
 
-  // Company endpoints
   async registerCompany(subdomain: string, token: string) {
     return this.request<{ message: string; role: string; companyId: number }>('/register-company', {
       method: 'POST',
@@ -76,7 +74,6 @@ class ApiClient {
     });
   }
 
-  // Products endpoints
   async getProducts(page: number = 1, size: number = 10) {
     return this.request<any>(`/products?page=${page}&size=${size}`, {
       method: 'GET',

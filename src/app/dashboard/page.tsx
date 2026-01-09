@@ -40,7 +40,6 @@ export default function DashboardPage() {
     return (
         <main className="min-h-screen pt-24 pb-12 px-4">
             <div className="container mx-auto max-w-5xl">
-                {/* Welcome Section */}
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold text-gray-900">
                         Welcome back! 👋
@@ -51,7 +50,6 @@ export default function DashboardPage() {
                 </div>
 
                 <CardGrid className="md:grid-cols-2 lg:grid-cols-2">
-                    {/* User Info Card */}
                     <Card title="Your Account" className="relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full -translate-y-1/2 translate-x-1/2 opacity-50" />
                         <div className="relative">
@@ -75,7 +73,6 @@ export default function DashboardPage() {
                         </div>
                     </Card>
 
-                    {/* Company Card */}
                     <Card title="Company Status">
                         {user.companyId ? (
                             <div className="space-y-4">
@@ -119,7 +116,6 @@ export default function DashboardPage() {
                     </Card>
                 </CardGrid>
 
-                {/* Products Section */}
                 {user.companyId && (
                     <div className="mt-8">
                         <Card>
@@ -146,7 +142,6 @@ export default function DashboardPage() {
                     </div>
                 )}
 
-                {/* Quick Info */}
                 <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100">
                     <h3 className="font-semibold text-gray-900 mb-2">Quick Info</h3>
                     <ul className="space-y-2 text-sm text-gray-600">

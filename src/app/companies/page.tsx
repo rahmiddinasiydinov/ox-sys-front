@@ -46,7 +46,7 @@ export default function CompaniesPage() {
 
         try {
             await api.deleteCompany(user.companyId);
-            // Update user state - company is now deleted
+
             updateUser({ companyId: undefined, role: "manager" });
             setShowDeleteModal(false);
             router.push("/dashboard");
@@ -71,7 +71,6 @@ export default function CompaniesPage() {
     return (
         <main className="min-h-screen pt-24 pb-12 px-4">
             <div className="container mx-auto max-w-3xl">
-                {/* Header */}
                 <div className="mb-8">
                     <Link
                         href="/dashboard"
@@ -93,7 +92,6 @@ export default function CompaniesPage() {
                     </div>
                 </div>
 
-                {/* Company Info Card */}
                 <Card className="mb-6">
                     <div className="flex items-start justify-between">
                         <div className="flex items-center gap-4">
@@ -139,7 +137,6 @@ export default function CompaniesPage() {
                     </div>
                 </Card>
 
-                {/* Danger Zone */}
                 <Card className="border-red-200 bg-red-50/50">
                     <div className="flex items-start gap-4">
                         <div className="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0">
@@ -163,14 +160,12 @@ export default function CompaniesPage() {
                     </div>
                 </Card>
 
-                {/* Error Display */}
                 {error && (
                     <div className="mt-4 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700">
                         {error}
                     </div>
                 )}
 
-                {/* Delete Confirmation Modal */}
                 <ConfirmModal
                     isOpen={showDeleteModal}
                     onClose={() => setShowDeleteModal(false)}

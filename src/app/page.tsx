@@ -20,7 +20,7 @@ export default function Home() {
             OX System Integration Platform
           </div>
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Manage Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">OX Business</span>
+            Manage Your <span className="text-transparent bg-clip-text bg-gradient-to-r bg-blue-600 ">OX Business</span>
             <br />From One Dashboard
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">

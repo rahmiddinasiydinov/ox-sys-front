@@ -80,7 +80,7 @@ function getImageUrl(images?: ProductImage[]): string | null {
     return img.urls?.["150x_"] || img.urls?.["100x_"] || img.urls?.["300x_"] || img.urls?.original || null;
 }
 
-function getProperty(properties?: ProductProperty[], name: string): string | null {
+function getProperty(name: string, properties?: ProductProperty[]): string | null {
     if (!properties) return null;
     const prop = properties.find(p => p.name.toLowerCase().includes(name.toLowerCase()));
     return prop?.value || null;
@@ -90,8 +90,8 @@ function ProductCard({ product }: { product: Product }) {
     const imageUrl = getImageUrl(product.images);
     const price = getPrice(product.stocks);
     const totalStock = getTotalStock(product.stocks);
-    const size = getProperty(product.properties, "размер") || getProperty(product.properties, "size");
-    const color = getProperty(product.properties, "цвет") || getProperty(product.properties, "color");
+    const size = getProperty("размер", product.properties) || getProperty("size", product.properties);
+    const color = getProperty("цвет", product.properties) || getProperty("color", product.properties);
 
     return (
         <div className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
